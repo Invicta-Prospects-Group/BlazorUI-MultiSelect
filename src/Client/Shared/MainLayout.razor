@@ -1,0 +1,21 @@
+﻿@layout TelerikLayout
+@inherits LayoutComponentBase
+@using StateManagement.Pax.Actions
+@inject IDispatcher _dispatcher
+
+<div class="page">
+    <main>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code{
+    protected override void OnInitialized()
+    {
+        _dispatcher.Dispatch(new PaxLoadPaxAction());
+
+        base.OnInitialized();
+    }
+}

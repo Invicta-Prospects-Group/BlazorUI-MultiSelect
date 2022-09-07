@@ -1,0 +1,10 @@
+﻿@page "/"
+
+@using StateManagementInterface
+
+@inject IState<IFieldState> _fieldState
+
+@foreach (var field in _fieldState.Value.Fields)
+{
+    <DynamicComponent Type="typeof(DynamicPaxSelectorMulti)" Parameters="@(new Dictionary<string, object>(){{"FieldId", field.Id}})"></DynamicComponent>
+}

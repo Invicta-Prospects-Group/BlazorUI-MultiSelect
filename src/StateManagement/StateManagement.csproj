@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Fluxor.Blazor.Web" Version="5.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Pax\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\StateManagementInterface\StateManagementInterface.csproj" />
+	</ItemGroup>
+
+</Project>

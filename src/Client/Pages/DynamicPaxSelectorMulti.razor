@@ -1,0 +1,29 @@
+﻿@using System.Collections.Immutable
+@using Telerik.Blazor.Components
+@using Telerik.Blazor
+
+@inherits DynamicFieldBase
+
+@Name
+
+<br />
+
+<TelerikMultiSelect Data="@PaxData"
+                    TextField="FullName"
+                    ValueField="PaxId"
+                    Value="@((List<string>?)Field?.Value)"
+                    ValueChanged="@((List<string>? v) => MyValueChangeHandler(v))"
+                    Enabled="true"
+                    ClearButton="true"
+                    AutoClose="false"
+                    Filterable="true"
+                    FilterOperator="StringFilterOperator.Contains">
+</TelerikMultiSelect>
+
+@code {
+    private void MyValueChangeHandler(List<string>? theUserChoice)
+    {
+        if (theUserChoice is not null) 
+            ChangeFieldValue(theUserChoice);
+    }
+}
