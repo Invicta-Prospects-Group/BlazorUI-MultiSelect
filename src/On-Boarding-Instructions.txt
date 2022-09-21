@@ -1,6 +1,6 @@
-1. Add 3 more default values
+1. Add 3 more default values																			✓
 
-2. Create "Clear all" button, onlick => clear all values in the multi-select (using action\reducer)
+2. Create "Clear all" button, onlick => clear all values in the multi-select (using action\reducer)		✓
 
 3. Create new control for icon selector using dynamic component
 	- create Icon POCO

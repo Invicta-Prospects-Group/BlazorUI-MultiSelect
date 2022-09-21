@@ -1,8 +1,10 @@
 ﻿@using System.Collections.Immutable
 @using Telerik.Blazor.Components
 @using Telerik.Blazor
+@using StateManagement.Fields.Actions
 
 @inherits DynamicFieldBase
+@inject IDispatcher Dispatcher
 
 @Name
 
@@ -20,10 +22,16 @@
                     FilterOperator="StringFilterOperator.Contains">
 </TelerikMultiSelect>
 
+<button class="btn btn-outline-info" @onclick="ClearSelection">Clear Selection</button>
+
 @code {
     private void MyValueChangeHandler(List<string>? theUserChoice)
     {
-        if (theUserChoice is not null) 
+        if (theUserChoice is not null)
             ChangeFieldValue(theUserChoice);
+    }
+    private void ClearSelection()
+    {
+        Dispatcher.Dispatch(new FieldClearAction(FieldId));
     }
 }

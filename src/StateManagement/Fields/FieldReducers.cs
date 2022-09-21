@@ -1,4 +1,6 @@
-﻿using Fluxor;
+﻿using Data;
+using System.Collections.Immutable;
+using Fluxor;
 using StateManagement.Fields.Actions;
 using StateManagementInterface;
 
@@ -17,6 +19,24 @@ public static class FieldReducers
         var amended = target with
         {
             Value = action.Value
+        };
+
+        return (FieldState)state with
+        {
+            Fields = state.Fields.Remove(target).Add(amended)
+        };
+    }
+
+    [ReducerMethod]
+    public static IFieldState OnClear(IFieldState state, FieldClearAction action)
+    {
+        var target = state.Fields.FirstOrDefault(f => f.Id == action.fieldId);
+
+        if (target == null) return (FieldState)state;
+
+        var amended = target with
+        {
+            Value = null
         };
 
         return (FieldState)state with

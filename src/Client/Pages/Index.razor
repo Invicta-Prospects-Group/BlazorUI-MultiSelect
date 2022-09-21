@@ -1,6 +1,9 @@
 ﻿@page "/"
 
 @using StateManagementInterface
+@using StateManagement.Fields.Actions
+
+@inject IDispatcher Dispatcher
 
 @inject IState<IFieldState> _fieldState
 
