@@ -12,6 +12,7 @@
 
 	<ItemGroup>
 		<Folder Include="Pax\" />
+		<Folder Include="Icons\" />
 	</ItemGroup>
 
 	<ItemGroup>
