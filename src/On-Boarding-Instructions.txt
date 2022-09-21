@@ -1,0 +1,13 @@
+1. Add 3 more default values
+
+2. Create "Clear all" button, onlick => clear all values in the multi-select (using action\reducer)
+
+3. Create new control for icon selector using dynamic component
+	- create Icon POCO
+	- Create an Interface for Icon State
+	- Create Icon Feature and state
+	- Register DI
+	- Load Icon state from JSON (use Action and Effect method)
+	- Create Icon Selector Control inherits from DynamicFieldBase
+	- Work out how to create Icon Selector vs Pax Selector control in Index.razor
+	- Add Action / Reducer to store the selected icon
