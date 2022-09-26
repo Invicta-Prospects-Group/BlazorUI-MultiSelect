@@ -3,6 +3,7 @@
 @using Telerik.Blazor
 @using StateManagementInterface
 @using StateManagement.Icons.Actions
+@using Data
 
 @inherits DynamicFieldBase
 @inject IDispatcher Dispatcher
@@ -19,7 +20,7 @@
                Modal=true
                Draggable=false>
     <WindowActions>
-        <WindowAction Name="Close" Hidden=false @onclick="ShowSelector"/>
+        <WindowAction Name="Close" Hidden=false @onclick="ShowSelector" />
     </WindowActions>
     <WindowTitle>
         Select Icon
@@ -27,16 +28,18 @@
     <WindowContent>
         @foreach (var icon in _iconState.Value.Icons)
         {
-            <TelerikButton Icon="@icon.ClassName">@icon.Description</TelerikButton>
+            <TelerikButton Icon="@icon.ClassName" OnClick="@(() => SelectedIcon(icon))">@icon.Description</TelerikButton>
         }
     </WindowContent>
 </TelerikWindow>
-
+@if (@IconState.Value.SelectedIcon != null)
+{
+    <TelerikIcon Icon="@IconState.Value.SelectedIcon.ClassName"/>
+}
 <button class="btn btn-outline-info" @onclick="ShowSelector">Select Icon</button>
 
 @code {
     bool isVisible = false;
-
 
     private void MyValueChangeHandler(List<string>? theUserChoice)
     {
@@ -55,5 +58,10 @@
         {
             isVisible = true;
         }
+    }
+
+    private void SelectedIcon(Icon icon)
+    {
+        Dispatcher.Dispatch(new IconSelectIconAction(icon));
     }
 }

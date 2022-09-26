@@ -17,6 +17,7 @@
     }
     else if (field.Id == "02")
     {
-        <DynamicComponent Type="typeof(IconSelectorControl)"></DynamicComponent>
+        <DynamicComponent Type="typeof(IconSelectorControl)" Parameters="@(new Dictionary<string, object>(){{"FieldId", field.Id}})"></DynamicComponent>
     }
+    <br/>
 }

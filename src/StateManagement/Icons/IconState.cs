@@ -8,4 +8,6 @@ namespace StateManagement.Icons;
 public record IconState : IIconState
 {
     public ImmutableList<Icon> Icons { get; init; } = ImmutableList<Icon>.Empty;
+
+    public Icon? SelectedIcon { get; init; }
 }

@@ -10,4 +10,4 @@
 	- Load Icon state from JSON (use Action and Effect method)											✓
 	- Create Icon Selector Control inherits from DynamicFieldBase										✓
 	- Work out how to create Icon Selector vs Pax Selector control in Index.razor						✓
-	- Add Action / Reducer to store the selected icon
+	- Add Action / Reducer to store the selected icon													✓

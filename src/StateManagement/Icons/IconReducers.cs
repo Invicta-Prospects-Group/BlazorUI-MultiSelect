@@ -14,5 +14,14 @@ public class IconReducers
             Icons = action.IconList
         };
     }
+
+    [ReducerMethod]
+    public static IIconState OnSelectIcon(IIconState state, IconSelectIconAction action)
+    {
+        return (IconState)state with
+        {
+            SelectedIcon = action.Selection
+        };
+    }
 }
 
