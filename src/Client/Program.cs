@@ -5,6 +5,7 @@ using StateManagement.Pax;
 using StateManagement.Fields;
 using StateManagementInterface;
 using Client;
+using StateManagement.Icons;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -21,7 +22,8 @@ builder.Services
         .UseReduxDevTools()
     )
     .AddSingleton<IPaxState>(sp => sp.GetRequiredService<PaxState>())
-    .AddSingleton<IFieldState>(sp => sp.GetRequiredService<FieldState>());
+    .AddSingleton<IFieldState>(sp => sp.GetRequiredService<FieldState>())
+    .AddSingleton<IIconState>(sp => sp.GetRequiredService<IconState>());
 
 var host = builder.Build();
 

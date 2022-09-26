@@ -13,10 +13,14 @@
 	<ItemGroup>
 		<Folder Include="Pax\" />
 		<Folder Include="Icons\" />
+		<Folder Include="Icons\Actions\" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\StateManagementInterface\StateManagementInterface.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Icons\Actions\" />
+	</ItemGroup>
 </Project>

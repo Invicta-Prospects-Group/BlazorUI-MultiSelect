@@ -2,10 +2,12 @@
 
 @using StateManagementInterface
 @using StateManagement.Fields.Actions
+@using StateManagement.Icons.Actions
 
 @inject IDispatcher Dispatcher
 
 @inject IState<IFieldState> _fieldState
+@inject IState<IIconState> _iconState
 
 @foreach (var field in _fieldState.Value.Fields)
 {
