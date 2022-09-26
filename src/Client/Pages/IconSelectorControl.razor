@@ -1,0 +1,59 @@
+﻿@using System.Collections.Immutable
+@using Telerik.Blazor.Components
+@using Telerik.Blazor
+@using StateManagementInterface
+@using StateManagement.Icons.Actions
+
+@inherits DynamicFieldBase
+@inject IDispatcher Dispatcher
+@inject IState<IIconState> _iconState
+
+@Name
+
+<br />
+
+<TelerikWindow Visible=@isVisible
+               Width="500px"
+               Height="400px"
+               Resizable=false
+               Modal=true
+               Draggable=false>
+    <WindowActions>
+        <WindowAction Name="Close" Hidden=false @onclick="ShowSelector"/>
+    </WindowActions>
+    <WindowTitle>
+        Select Icon
+    </WindowTitle>
+    <WindowContent>
+        @foreach (var icon in _iconState.Value.Icons)
+        {
+            <TelerikButton Icon="@icon.ClassName">@icon.Description</TelerikButton>
+        }
+    </WindowContent>
+</TelerikWindow>
+
+<button class="btn btn-outline-info" @onclick="ShowSelector">Select Icon</button>
+
+@code {
+    bool isVisible = false;
+
+
+    private void MyValueChangeHandler(List<string>? theUserChoice)
+    {
+        if (theUserChoice is not null)
+            ChangeFieldValue(theUserChoice);
+    }
+
+    private void ShowSelector()
+    {
+        Dispatcher.Dispatch(new IconLoadIconsAction());
+        if (isVisible)
+        {
+            isVisible = false;
+        }
+        else
+        {
+            isVisible = true;
+        }
+    }
+}

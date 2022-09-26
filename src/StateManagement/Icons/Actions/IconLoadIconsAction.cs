@@ -1,5 +1,5 @@
 ﻿namespace StateManagement.Icons.Actions;
 
-public class IconLoadIconAction
+public class IconLoadIconsAction
 {
 }

@@ -11,5 +11,12 @@
 
 @foreach (var field in _fieldState.Value.Fields)
 {
-    <DynamicComponent Type="typeof(DynamicPaxSelectorMulti)" Parameters="@(new Dictionary<string, object>(){{"FieldId", field.Id}})"></DynamicComponent>
+    if (field.Id == "01")
+    {
+        <DynamicComponent Type="typeof(DynamicPaxSelectorMulti)" Parameters="@(new Dictionary<string, object>(){{"FieldId", field.Id}})"></DynamicComponent>
+    }
+    else if (field.Id == "02")
+    {
+        <DynamicComponent Type="typeof(IconSelectorControl)"></DynamicComponent>
+    }
 }

@@ -15,10 +15,10 @@ public class IconEffects
         _httpClient = httpClient;
     }
 
-    [EffectMethod(typeof(IconLoadIconAction))]
+    [EffectMethod(typeof(IconLoadIconsAction))]
     public async Task LoadIconLibrary(IDispatcher dispatcher)
     {
-        var data = await _httpClient.GetFromJsonAsync<List<Icon>>("sample-data/telerick-icons.json");
+        var data = await _httpClient.GetFromJsonAsync<List<Icon>>("sample-data/telerik-icons.json");
 
         dispatcher.Dispatch(new IconAddIconAction(data!.ToImmutableList()));
     }

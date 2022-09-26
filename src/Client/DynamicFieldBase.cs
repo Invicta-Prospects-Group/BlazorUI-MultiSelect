@@ -18,6 +18,9 @@ public class DynamicFieldBase : ComponentBase, IDisposable
     protected IState<IPaxState> PaxState { get; set; }
 
     [Inject]
+    protected IState<IIconState> IconState { get; set; }
+
+    [Inject]
     private IDispatcher Dispatcher { get; set; }
 
 #pragma warning restore CS8618
@@ -35,6 +38,7 @@ public class DynamicFieldBase : ComponentBase, IDisposable
     {
         FieldState!.StateChanged += OnStateChanged;
         PaxState!.StateChanged += OnStateChanged;
+        IconState!.StateChanged += OnStateChanged;
         base.OnInitialized();
     }
 
@@ -42,6 +46,7 @@ public class DynamicFieldBase : ComponentBase, IDisposable
     {
         FieldState!.StateChanged -= OnStateChanged;
         PaxState!.StateChanged -= OnStateChanged;
+        IconState!.StateChanged -= OnStateChanged;
         GC.SuppressFinalize(this);
     }
 
